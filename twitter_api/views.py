@@ -8,4 +8,4 @@ class Tweets(APIView):
     def get(self, request, *args, **kwargs):
         search_arg = kwargs['search_pattern']
         result = twitter_methods.get_search(search_arg, 200)
-        return Response({'data': [for r._json in result]})
+        return Response({'data': [r._json for r in result]})
